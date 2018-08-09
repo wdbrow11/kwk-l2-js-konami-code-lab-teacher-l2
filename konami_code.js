@@ -12,17 +12,20 @@ const codes = [
 ];
 
 function init() {
-  let idx = 0
+  let keyStrokes = 0;
 
   document.body.addEventListener("keydown", (e) => {
-    const key = e.key
+    const key = e.key;
     
-    idx = (codes[idx] === key) ? ++idx : 0
+    if (codes[keyStrokes] === key){ 
+      keyStrokes = keyStrokes + 1;
+      } else {
+        keyStrokes = 0;
+      }
     
-    if (idx === codes.length) {
+    if (keyStrokes === codes.length) {
       window.alert("Hurray!");
-      idx = 0
+      keyStrokes = 0;
     }
-    
-  });
+  })
 }
